@@ -55,6 +55,7 @@ class CameraController extends Controller
         define('UPLOAD_DIR', __DIR__.'/../../../../web/upload/image/');
         // decode base64image
         $base64img = str_replace('data:image/png;base64,', '', $base64img);
+        $base64img = str_replace('data:image/webp;base64,', '', $base64img);
         $data = base64_decode($base64img);
         // put file in web/upload/image/ directory
         $file = UPLOAD_DIR . $photoName;
