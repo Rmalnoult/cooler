@@ -22,8 +22,8 @@ var localMediaStream = null;
 function snapshot() {
 	if (localMediaStream) {
 	  	console.log('say cheeese');
-
-    ctx.drawImage(video, 0, 0, 400, 300);
+	  	ctx.scale(1, 1);
+    ctx.drawImage(video, 0, 0, 350, 280);
     // "image/webp" works in Chrome.
     // Other browsers will fall back to image/png.
     document.querySelector('img').src = canvas.toDataURL('image/webp');

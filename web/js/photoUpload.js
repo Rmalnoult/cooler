@@ -4,7 +4,6 @@ var photoUpload = {
 		var userId = 1;
 		// var userId = $('.personId').attr("id");
 		var pictureUploadRoute = $('canvas').attr('data-pictureuploadroute');
-		$('body').append(base64img);
 
 		$.ajax({
 		    type: "POST",
