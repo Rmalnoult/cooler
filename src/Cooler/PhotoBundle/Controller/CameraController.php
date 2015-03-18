@@ -25,10 +25,11 @@ class CameraController extends Controller
     	// methode upload dans l'entity photo.php
     	$userRepository = $this->getDoctrine()->getRepository('CoolerUserBundle:User');
     	$user = $userRepository->find($userId);
+    	$photoExtension = $this->getExtension($base64img);
 
 
     	$photo = new Photo();
-    	$photo->setPath();
+    	$photo->setPath($photoExtension);
     	$photo->setUser(1);
 
     	// decode base64image and put file in upload directory
@@ -61,6 +62,15 @@ class CameraController extends Controller
         // put file in web/upload/image/ directory
         $file = UPLOAD_DIR . $photoName;
         file_put_contents($file, $data);
+    }
+    public function getExtension($base64img)
+    {
+    	if (strpos($base64img,'data:image/png;base64') !== false) {
+    	    return '.jpg';
+    	}
+    	if (strpos($base64img,'data:image/png;base64') !== false) {
+    	    return '.webp';
+    	}
     }
 
 }

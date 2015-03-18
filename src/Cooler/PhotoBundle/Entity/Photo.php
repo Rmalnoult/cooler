@@ -107,10 +107,10 @@ class Photo
      * @param string $source
      * @return Photo
      */
-    public function SetPath()
+    public function SetPath($extension)
     {
 
-        $this->path = sha1(uniqid(mt_rand(), true)).'.jpg';
+        $this->path = sha1(uniqid(mt_rand(), true)).$extension;
         // $this->path = sha1(uniqid(mt_rand(), true)).'.'.$this->file->guessExtension();
         return $this->path;
     }
