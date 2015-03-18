@@ -29,7 +29,7 @@ class CameraController extends Controller
 
     	$photo = new Photo();
     	$photo->setPath();
-    	$photo->setUser($user);
+    	$photo->setUser(1);
 
     	// decode base64image and put file in upload directory
     	$this->saveImage($base64img, $photo->getPath());
@@ -50,12 +50,13 @@ class CameraController extends Controller
     	return $response;
     }
     public function saveImage($base64img, $photoName){
-    	var_dump($base64img);
         // define photo directory
         define('UPLOAD_DIR', __DIR__.'/../../../../web/upload/image/');
         // decode base64image
         $base64img = str_replace('data:image/png;base64,', '', $base64img);
         $base64img = str_replace('data:image/webp;base64,', '', $base64img);
+        var_dump($base64img);
+
         $data = base64_decode($base64img);
         // put file in web/upload/image/ directory
         $file = UPLOAD_DIR . $photoName;
