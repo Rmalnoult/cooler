@@ -21,6 +21,7 @@
 !bin/console
 !bin/symfony_requirements
 /vendor/
+!/vendor/friendsofsymfony/user-bundle/*
 
 # Assets and user uploads
 /web/bundles/
@@ -32,3 +33,5 @@
 
 # Composer PHAR
 /composer.phar
+
+/web/upload/image/*
