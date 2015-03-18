@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    {% block seo %}
+    <title>{% block title %}{{ title|default('Cooler')}}{% endblock title %}</title>
+    <meta name="keywords" content="{{ keywords|default('Cooler')}}" />
+    <meta name="description" content="{{description|default('')}}" />
+    <meta name="robots" content="index, follow" /> 
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block css %}
+    {% endblock css %}
+    {% block page_css %}
+    {% endblock %}
+
+
+  </head>
+  <body>
+      
+
+      
+{% block content %}
+{% endblock content %}
+{% block header %}
+{% endblock header %}
+
+ 
+    
+     
+<!-- FOOTER -->
+<!-- FOOTER -->
+{% block javascript %}
+<script src="/js/vendor/jquery.min.js"></script>
+{% endblock %}  
+  </body>
+</html>

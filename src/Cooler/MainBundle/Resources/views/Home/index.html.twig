@@ -1,0 +1,16 @@
+{% extends 'CoolerMainBundle::layout.html.twig' %}
+
+{% block css %}
+	{{parent()}}
+{% endblock css %}
+
+{% block content %}
+	<h1>Cooler</h1>
+	<h2>Your new beer buddy</h2>
+	<img id="homeLogo" src="{{asset('img/beerlogo.jpg')}}" alt="Cooler Beer Logo">
+
+	<div class="connect">
+		<a class="connect login" href="{{ path('fos_user_security_login', {}) }}">login</a>
+		<a class="connect signup" href="{{ path('fos_user_registration_register', {}) }}">sign up</a>
+	</div>
+{% endblock content %}

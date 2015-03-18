@@ -1,0 +1,7 @@
+camera:
+    path:     /camera
+    defaults: { _controller: CoolerPhotoBundle:Camera:camera }
+
+picture_upload:
+    path:     /picture/upload
+    defaults: { _controller: CoolerPhotoBundle:Camera:savePhoto }

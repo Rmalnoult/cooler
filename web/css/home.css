@@ -1,0 +1,61 @@
+@font-face{
+    font-family : "Fairview_Regular";
+    src : url('../fonts/Fairview_Regular.otf');
+}
+@font-face{
+    font-family : "Fairview_SmallCaps";
+    src : url('../fonts/Fairview_SmallCaps.otf');
+}
+
+body {
+	font-family: 'Fairview_SmallCaps'
+}
+.container {
+	text-align: center;
+}
+h1, h2 {
+	text-transform: uppercase;
+
+}
+h1 {
+	font-size: 6.5em;
+	font-weight: normal;
+	font-family: 'Fairview_SmallCaps';
+	color: #eb9919;
+	margin-bottom: 0;
+}
+h2 {
+	color: #513f3f;
+    font-family: "Fairview_SmallCaps";
+    font-size: 2em;
+    font-weight: normal;
+    margin-top: 0;
+    position: relative;
+    top: -9px;
+}
+img#homeLogo {
+	width: 100px;
+}
+a.connect {
+	font-family: 'Fairview_SmallCaps';
+	width: 100%;
+	display: block;
+	color: #fff;
+	padding: 20px auto;
+	font-size: 4em;
+	text-decoration: none;
+}
+div.connect {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: block;
+	width: 100%
+}
+a.connect.login {
+	background-color: #eb9919;
+}
+a.connect.signup {
+	background-color: #513f3f;
+}
