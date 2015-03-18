@@ -68,7 +68,7 @@ class CameraController extends Controller
     	if (strpos($base64img,'data:image/png;base64') !== false) {
     	    return '.jpg';
     	}
-    	if (strpos($base64img,'data:image/png;base64') !== false) {
+    	if (strpos($base64img,'data:image/webp;base64') !== false) {
     	    return '.webp';
     	}
     }
