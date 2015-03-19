@@ -8,15 +8,25 @@
 {% block content %}
 <!-- 	<h1>home</h1>
 	<h2>hello {{user.username}}</h2> -->
+	<div class="header">
+		<a href="#" id="fridgeIcon"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
+		<a href="#" id="menuButton"><img src="{{asset('img/burgerMenuButton.png')}}" alt="menu icon"></a>
+		<img src="{{asset('img/beerlogo2.png')}}" alt="">
+	</div>
 
 	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}
 
-	<a href="#" id="fridgeIcon"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
-	<a href="#" id="menuIcon"><img src="{{asset('img/menu.png')}}" alt="menu icon"></a>
 
-	<a href="#" class="circleButton">Add a Beer</a>
-	<a href="{{ path('findabar', {}) }}" class="circleButton">Find a Bar</a>
-	<a href="#" class="circleButton">Share a Beer</a>
+
+	<a href="#" class="circleButton addabeer">Add a Beer</a>
+	<a href="{{ path('findabar', {}) }}" class=" findabar circleButton">Find a Bar</a>
+	<a href="#" class="shareabeer circleButton">Beer Now</a>
 	
 
 {% endblock content %}
+
+  {% block javascript %}
+	{{parent()}}
+    <script src="{{asset('js/sidemenu.js')}}"></script>
+    
+  {% endblock %}  

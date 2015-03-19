@@ -8,10 +8,32 @@
 }
 
 body {
-	font-family: 'Fairview_SmallCaps'
+	font-family: 'Fairview_SmallCaps';
+	margin: 0;
 }
 .container {
 	text-align: center;
+	overflow: hidden;
+	position: relative;
+}
+ul {
+	padding: 0;
+}
+.header {
+	height: 50px;
+	background-color: #eb9919;
+	width: 100%;
+	position: relative;
+}
+.header img, .header a {
+	height: 100%;
+
+}
+.header a#menuButton, .header a#fridgeIcon {
+	padding: 0;
+}
+.header a#fridgeIcon {
+
 }
 h1, h2 {
 	text-transform: uppercase;
@@ -23,6 +45,7 @@ h1 {
 	font-family: 'Fairview_SmallCaps';
 	color: #eb9919;
 	margin-bottom: 0;
+	margin-top: 27px;
 }
 h2 {
 	color: #513f3f;
@@ -34,7 +57,8 @@ h2 {
     top: -9px;
 }
 img#homeLogo {
-	width: 100px;
+	width: 40%;
+	max-width: 230px;
 }
 a.connect {
 	font-family: 'Fairview_SmallCaps';
@@ -63,26 +87,38 @@ a.connect.signup {
 a#fridgeIcon {
 	position: absolute;
 	padding: 20px;
-	right: 0;
-	top: 0;
-}
-a#menuIcon {
-	position: absolute;
-	padding: 20px;
-	left: 0;
+	right: 5px;
 	top: 0;
 }
 
+
 a.circleButton {
-	background-color: #eb9919;
+	background-color: #443742;
 	border-radius: 88px;
 	display: block;
 	margin: 20px auto;
 	padding: 35px;
 	width: 100px;
 	text-decoration: none;
-	font-size: 3em;
-	color : #513f3f;
+	font-size: 2em;
+	color : #fff;
+
+	background-repeat: no-repeat;
+	background-position: center 85px;
+	background-size: 25%;
+}
+a.circleButton.addabeer {
+	background-image: url('../img/beer.png');
+	padding: 37px 40px 101px 40px;
+}
+a.circleButton.findabar {
+	background-image: url('../img/findabar.png');
+	padding: 37px 40px 111px;
+}
+a.circleButton.shareabeer {
+	background-image: url('../img/beers.png');
+	padding: 37px 40px 111px;
+	background-size: 39%;
 }
 
 ul#barList li {
