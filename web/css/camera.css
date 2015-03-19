@@ -1,8 +1,11 @@
 canvas, video+img {
-	width: 400px;
-	height: 400px;
+	width: 100%;
+	height: 100%;
+}
+canvas {
+	border: 1px solid black;
 }
 video {
-	width: 400px;
-	height: 400px;
+	width: 100%;
+	height: auto;
 }

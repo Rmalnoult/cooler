@@ -21,13 +21,27 @@ var localMediaStream = null;
 
 function snapshot() {
 	if (localMediaStream) {
+		var video = document.querySelector('video');
 	  	console.log('say cheeese');
-	  	ctx.scale(1, 1);
-    ctx.drawImage(video, 0, 0, 350, 280);
-    // "image/webp" works in Chrome.
-    // Other browsers will fall back to image/png.
-    document.querySelector('img').src = canvas.toDataURL('image/webp');
-    photoUpload.upload(document.querySelector('img').src);
+	  	
+	  	var w = $('canvas').width();
+	  	console.log(w);
+	  	var h = $('video').height();
+	  	console.log(h);
+	  	$('canvas').animate({
+	  		height: h,
+	  		border: 5},
+	  		0, function() {
+	  			ctx.scale(0.5, 1);
+	  		ctx.drawImage(video, 0, 0, w, h);
+	  		// "image/webp" works in Chrome.
+	  		// Other browsers will fall back to image/png.
+	  		document.querySelector('img').src = canvas.toDataURL('image/webp');
+	  		photoUpload.upload(document.querySelector('img').src);
+	  	});
+
+    
+
   }
 }
 
