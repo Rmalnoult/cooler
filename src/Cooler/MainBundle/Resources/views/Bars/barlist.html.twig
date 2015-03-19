@@ -6,15 +6,14 @@
 {% endblock css %}
 
 {% block content %}
-	<video autoplay></video>
-	<img  src="">
-	<canvas data-pictureuploadroute="{{ path('picture_upload', {}) }}" height="100%" width="100%" ></canvas>
+	<ul id="barList"></ul>
+	<div style="display:none" id="map"></div>
 {% endblock content %}
 
 
 
 {% block javascript %}
 	{{parent()}}
-	<script src="{{asset('js/camera.js')}}"></script>
+	<script src="{{asset('js/barLocator.js')}}"></script>
   
 {% endblock %}  

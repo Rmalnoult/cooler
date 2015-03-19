@@ -1,0 +1,22 @@
+{% extends 'CoolerMainBundle::layout.html.twig' %}
+
+{% block css %}
+	{{parent()}}
+	<link rel="stylesheet" type="text/css" href="{{asset('css/sidemenu.css')}}">
+{% endblock css %}
+
+{% block content %}
+<!-- 	<h1>home</h1>
+	<h2>hello {{user.username}}</h2> -->
+
+	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}
+
+	<a href="#" id="fridgeIcon"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
+	<a href="#" id="menuIcon"><img src="{{asset('img/menu.png')}}" alt="menu icon"></a>
+
+	<a href="#" class="circleButton">Add a Beer</a>
+	<a href="{{ path('findabar', {}) }}" class="circleButton">Find a Bar</a>
+	<a href="#" class="circleButton">Share a Beer</a>
+	
+
+{% endblock content %}

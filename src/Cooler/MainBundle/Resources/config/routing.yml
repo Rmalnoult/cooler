@@ -1,3 +1,7 @@
 home:
     path:     /
     defaults: { _controller: CoolerMainBundle:Home:index }
+
+findabar:
+    path:     /findabar
+    defaults: { _controller: CoolerMainBundle:Home:findaBar }

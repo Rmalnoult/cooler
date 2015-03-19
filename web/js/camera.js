@@ -7,7 +7,7 @@ if (hasGetUserMedia()) {
 	console.log("hasgetusermedia");
   // Good to go!
 } else {
-  alert('getUserMedia() is not supported in your browser');
+  console.log('getUserMedia() is not supported in your browser');
 }
 
 var errorCallback = function(e) {
@@ -32,7 +32,7 @@ function snapshot() {
 	  		height: h,
 	  		border: 5},
 	  		0, function() {
-	  			ctx.scale(0.5, 1);
+	  			// ctx.scale(0.5, 1);
 	  		ctx.drawImage(video, 0, 0, w, h);
 	  		// "image/webp" works in Chrome.
 	  		// Other browsers will fall back to image/png.

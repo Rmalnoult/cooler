@@ -59,3 +59,38 @@ a.connect.login {
 a.connect.signup {
 	background-color: #513f3f;
 }
+
+a#fridgeIcon {
+	position: absolute;
+	padding: 20px;
+	right: 0;
+	top: 0;
+}
+a#menuIcon {
+	position: absolute;
+	padding: 20px;
+	left: 0;
+	top: 0;
+}
+
+a.circleButton {
+	background-color: #eb9919;
+	border-radius: 88px;
+	display: block;
+	margin: 20px auto;
+	padding: 35px;
+	width: 100px;
+	text-decoration: none;
+	font-size: 3em;
+	color : #513f3f;
+}
+
+ul#barList li {
+	-webkit-box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 2px 5px -1px rgba(0, 0, 0, 0.4);
+	width: 80%;
+	padding: 30px;
+	list-style-type: none;
+	font-size: 2em;
+	margin-bottom: 15px;
+}
