@@ -24,6 +24,7 @@ class AjaxController extends Controller
     		$array = array(
     			'name' => $beer->getName(),
     			'id' => $beer->getId(),
+    			'abv' => $beer->getAbv(),
     			);
     		array_push($searchResults, $array); 
     	}
