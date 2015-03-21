@@ -4,6 +4,7 @@ namespace Cooler\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\FormBuilder;
 
 class HomeController extends Controller
 {
@@ -11,6 +12,7 @@ class HomeController extends Controller
 	{
 		$user = $this->get('security.token_storage')->getToken()->getUser();
 		if ($user != 'anon.') {
+
 			$user = $this->getUserById($user->getId());
 			return $this->render('CoolerMainBundle:Home:home.html.twig', array(
 				'user' => $user,

@@ -5,3 +5,6 @@ home:
 findabar:
     path:     /findabar
     defaults: { _controller: CoolerMainBundle:Home:findaBar }
+search_beer:
+    path:     /searchBeer
+    defaults: { _controller: CoolerMainBundle:Ajax:searchBeer }

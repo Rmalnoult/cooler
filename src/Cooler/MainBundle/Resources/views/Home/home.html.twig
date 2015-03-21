@@ -11,12 +11,18 @@
 	<div class="header">
 		<a href="#" id="fridgeIcon"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
 		<a href="#" id="menuButton"><img src="{{asset('img/burgerMenuButton.png')}}" alt="menu icon"></a>
-		<img src="{{asset('img/beerlogo2.png')}}" alt="">
+		
+		<img src="{{asset('img/beerlogo.png')}}" alt="">
 	</div>
 
 	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}
 
 
+	<form action="POST">
+		<input type="text" data-autocompleteroute="{{ path('search_beer', {}) }}" id="addabeer"/>
+		<a href="#" style="display:none" class="backButton"><img src="{{asset('img/close.png')}}" alt="menu icon"></a>
+		<ul id="autocomplete"></ul>
+	</form>
 
 	<a href="#" class="circleButton addabeer">Add a Beer</a>
 	<a href="{{ path('findabar', {}) }}" class=" findabar circleButton">Find a Bar</a>
@@ -28,5 +34,7 @@
   {% block javascript %}
 	{{parent()}}
     <script src="{{asset('js/sidemenu.js')}}"></script>
+    <script src="{{asset('js/addabeer.js')}}"></script>
+    <script src="{{asset('js/autocomplete.js')}}"></script>
     
   {% endblock %}  
