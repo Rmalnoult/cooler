@@ -19,6 +19,11 @@ body {
 	background-size: auto;
 	height: 1136px;
 }
+.container.start {
+	background:none;
+	background-color: #fff;
+	height: 600px
+}
 ul {
 	padding: 0;
 }
@@ -83,7 +88,7 @@ a.connect {
 	display: block;
 	color: #fff;
 	padding: 20px auto;
-	font-size: 4em;
+	font-size: 3em;
 	text-decoration: none;
 }
 div.connect {

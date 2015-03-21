@@ -5,6 +5,7 @@
 {% endblock css %}
 
 {% block content %}
+<div class="container start">
 	<h1>Cooler</h1>
 	<h2>Your new beer buddy</h2>
 	<img id="homeLogo" src="{{asset('img/beerlogo.png')}}" alt="Cooler Beer Logo">
@@ -13,4 +14,5 @@
 		<a class="connect login" href="{{ path('fos_user_security_login', {}) }}">login</a>
 		<a class="connect signup" href="{{ path('fos_user_registration_register', {}) }}">sign up</a>
 	</div>
+</div>
 {% endblock content %}
