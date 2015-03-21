@@ -20,7 +20,7 @@ body {
 	height: 1136px;
 }
 .container.start {
-	background:none;
+	background-image:none;
 	background-color: #fff;
 	height: 600px
 }
