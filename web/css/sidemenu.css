@@ -21,12 +21,12 @@ a#menuButton {
 	position: absolute;
 	padding: 20px;
 	left: 9px;
-	top: 3px;
+	top: 6px;
 	z-index: 4;
 
 }
 a#menuButton img {
-	height: 65%;
+	height: 56%;
 }
 
 .sidemenu a, .sidemenu li {

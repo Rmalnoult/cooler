@@ -31,7 +31,7 @@ var sidemenu = {
 			300, function() {
 		});
 		$('a#menuButton').animate({
-			left: "0px"},
+			left: "9px"},
 			300, function() {
 		});
 		$('div.container').removeClass('opacityOn');

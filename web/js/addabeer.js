@@ -80,10 +80,10 @@ var addabeer = {
 				150, function () {
 					
 					button.animate({
-						width: 350,
-						height: 50,
-						fontSize: '2em',
-						padding: 23},
+						'width': '79%',
+						height: '22px',
+						fontSize: '1.2em',
+						padding: 9},
 						200, function() {
 							input.removeClass('active');
 					});
