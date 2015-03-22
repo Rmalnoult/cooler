@@ -14,5 +14,5 @@ test:
     path:     /test
     defaults: { _controller: CoolerMainBundle:Home:test }
 beer:
-    path:     /beer/{$beerId}
+    path:     /beer/{beerId}
     defaults: { _controller: CoolerMainBundle:Beer:index }
