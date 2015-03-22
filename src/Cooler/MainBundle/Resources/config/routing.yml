@@ -10,11 +10,9 @@ search_beer:
     defaults: { _controller: CoolerMainBundle:Ajax:searchBeer }
 
 
-
-
-
-
-
 test:
     path:     /test
     defaults: { _controller: CoolerMainBundle:Home:test }
+beer:
+    path:     /beer/{$beerId}
+    defaults: { _controller: CoolerMainBundle:Beer:index }
