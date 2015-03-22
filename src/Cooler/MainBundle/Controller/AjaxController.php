@@ -21,10 +21,13 @@ class AjaxController extends Controller
     	$searchResults = array();
     	foreach ($beers as $beer) {
 
+            $category = $this->getBeerCategory($beer);
+
     		$array = array(
     			'name' => $beer->getName(),
     			'id' => $beer->getId(),
-    			'abv' => $beer->getAbv(),
+                'abv' => $beer->getAbv(),
+    			'category' => $category,
     			);
     		array_push($searchResults, $array); 
     	}
@@ -34,6 +37,19 @@ class AjaxController extends Controller
     	    $searchResults
     	);
     	return $response;
+    }
+    public function getBeerCategory($beer)
+    {
+        $catid = $beer->getCatId();
+        $categoriesRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:categories');
+        $categories = $categoriesRepository->find($catid);
+        if ($categories) {
+            $category = $categories->getCatName();
+        } else {
+            $category = '';
+        }
+        
+        return $category;
     }
 
 }

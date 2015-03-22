@@ -8,3 +8,13 @@ findabar:
 search_beer:
     path:     /searchBeer
     defaults: { _controller: CoolerMainBundle:Ajax:searchBeer }
+
+
+
+
+
+
+
+test:
+    path:     /test
+    defaults: { _controller: CoolerMainBundle:Home:test }

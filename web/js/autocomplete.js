@@ -17,7 +17,7 @@ var autocomplete = {
 					success: function  (data) {
 						for (var i = 0; i < data.length; i++) {
 							// console.log(data[i].name);
-							$('ul#autocomplete').append('<li><a href="" ><div class="fridge"><img src="../img/fridge.png" alt="" /></div><img src="../img/delir.png" alt="" /><h2>'+data[i].name+'</h2><p class="teint" >Blond</p><p class="alcohol" >'+data[i].abv+'</p></a></li>');
+							$('ul#autocomplete').append('<li><a href="" ><div class="fridge"><img src="../img/fridge.png" alt="" /></div><img src="../img/delir.png" alt="" /><h2>'+data[i].name+'</h2><p class="teint" >'+data[i].category+'</p><p class="alcohol" >'+data[i].abv+'</p></a></li>');
 						};
 					}
 				})

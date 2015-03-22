@@ -16,7 +16,7 @@ body {
 	overflow: hidden;
 	background-image: url('../img/background.jpg');
 	background-repeat: no-repeat;
-	background-size: auto;
+	background-size: cover;
 	height: 736px;
 }
 .container.start {
