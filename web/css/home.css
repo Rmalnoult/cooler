@@ -129,6 +129,7 @@ a.circleButton {
 	text-decoration: none;
 	text-transform: uppercase;
 	width: 79%;
+	z-index: 2;
 }
 a.circleButton.addabeer {
 	background-image: url('../img/beer.png');
