@@ -25,6 +25,10 @@ textarea {
     height: 150px; 
     line-height: 150%; 
     } 
+input {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
    
 input:hover, textarea:hover, 
 input:focus, textarea:focus { 
@@ -70,8 +74,7 @@ input:focus, textarea:focus {
     top: 5px;
 
 }
-#fos_user_registration_form input[type=submit] {
-    padding:5px 15px; background:#ccc; border:0 none;
+input[type=submit] {
     cursor:pointer;
     -webkit-border-radius: 5px;
     border-radius: 5px; }
