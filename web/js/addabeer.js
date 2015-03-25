@@ -34,12 +34,9 @@ var addabeer = {
 					input.focus();
 					form.animate({top: 8}, 300)
 					input.animate({
-						width: 350,
+						width: '90%',
 						height: 30,
-						'padding-top' : 0,
-						'padding-right' : 14,
-						'padding-bottom' : 0,
-						'padding-left' : 14,
+						'padding' : 0,
 						borderWidth: 0,
 						borderRadius: 0},
 						300);
