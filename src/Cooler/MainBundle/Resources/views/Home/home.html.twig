@@ -16,8 +16,6 @@
 		<img src="{{asset('img/logoettitre.png')}}" alt="">
 	</div>
 
-	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}
-
 
 	<form action="POST">
 		<input type="text" data-autocompleteroute="{{ path('search_beer', {}) }}" id="addabeer"/>
@@ -30,6 +28,7 @@
 	<a href="#" class="shareabeer circleButton">Beer Now</a>
 	
 </div>
+	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}
 {% endblock content %}
 
   {% block javascript %}

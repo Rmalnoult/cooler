@@ -7,6 +7,7 @@ var sidemenu = {
 			} else {
 				sidemenu.openMenu();
 			};
+			event.stopPropagation();
 		});
 	},
 	openMenu: function () {
@@ -21,7 +22,17 @@ var sidemenu = {
 		});
 		$('div.container').removeClass('opactityOff');
 		$('div.container').addClass('opacityOn');
+
 		$('div.sidemenu').addClass('active');
+
+
+    	// when the screen is clicked (outside of the lightbox), lightbox closes
+    	$('.container').click(function() {
+    		 if ($('div.sidemenu').hasClass('active') ) {
+				sidemenu.closeMenu();
+    		 }	     		
+    	});
+
 	},
 	closeMenu: function () {
 		
