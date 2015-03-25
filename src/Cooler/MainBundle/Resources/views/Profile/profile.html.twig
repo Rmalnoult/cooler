@@ -16,7 +16,11 @@
 	</div>
 
 	<div class="profilepic">
-		
+        {% if beer.filepath is not null  %}
+		  <img src="{{ url('home') }}img/beers/{{ beer.filepath }}" alt="">
+        {% else  %}
+            <p>no picture</p>
+        {% endif %}
 	</div>
 
 	<h1>{{ beer.name }}</h1>

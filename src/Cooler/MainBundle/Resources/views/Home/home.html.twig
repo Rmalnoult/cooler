@@ -27,6 +27,7 @@
 	<a href="{{ path('findabar', {}) }}" class=" findabar circleButton">Find a Bar</a>
 	<a href="#" class="shareabeer circleButton">Beer Now</a>
 	
+	<span class="variables" data-beerprofileroute="{{ path('beer', { 'beerId' : 'xxxxx'}) }}" ></span>
 </div>
 	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}
 {% endblock content %}

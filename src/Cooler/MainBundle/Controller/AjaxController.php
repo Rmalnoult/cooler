@@ -24,7 +24,8 @@ class AjaxController extends Controller
             $category = $this->getBeerCategory($beer);
 
     		$array = array(
-    			'name' => $beer->getName(),
+                'name' => $beer->getName(),
+    			'filepath' => $beer->getFilepath(),
     			'id' => $beer->getId(),
                 'abv' => $beer->getAbv(),
     			'category' => $category,
