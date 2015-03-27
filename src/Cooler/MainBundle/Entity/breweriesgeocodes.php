@@ -5,12 +5,12 @@ namespace Cooler\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * breweries_geocode
+ * breweriesgeocodes
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class breweries_geocode
+class breweriesgeocodes
 {
     /**
      * @var integer
@@ -22,7 +22,9 @@ class breweries_geocode
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity="Cooler\MainBundle\Entity\breweries", cascade={"persist"})
+     * @var integer
+     *
+     * @ORM\Column(name="brewery_id", type="integer")
      */
     private $breweryId;
 
@@ -62,7 +64,7 @@ class breweries_geocode
      * Set breweryId
      *
      * @param integer $breweryId
-     * @return breweries_geocode
+     * @return breweriesgeocodes
      */
     public function setBreweryId($breweryId)
     {
@@ -85,7 +87,7 @@ class breweries_geocode
      * Set latitude
      *
      * @param float $latitude
-     * @return breweries_geocode
+     * @return breweriesgeocodes
      */
     public function setLatitude($latitude)
     {
@@ -108,7 +110,7 @@ class breweries_geocode
      * Set longitude
      *
      * @param float $longitude
-     * @return breweries_geocode
+     * @return breweriesgeocodes
      */
     public function setLongitude($longitude)
     {
@@ -131,7 +133,7 @@ class breweries_geocode
      * Set accuracy
      *
      * @param string $accuracy
-     * @return breweries_geocode
+     * @return breweriesgeocodes
      */
     public function setAccuracy($accuracy)
     {

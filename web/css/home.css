@@ -207,9 +207,9 @@ ul#autocomplete li a:hover {
 
 }
 ul#autocomplete li img {
-	height: 134px;
-    margin: 0 auto;
-    width: 42%;
+  height: 140px;
+  margin: 10px auto;
+  width: auto;
     
 }
 ul#autocomplete li a h2 {

@@ -12,10 +12,16 @@ class BeerController extends Controller
     	$style = $this->getBeerStyle($beer);
     	$category = $this->getBeerCategory($beer);
 
+        $location = $this->getLocation($beer);
+
+
+        $longitude = 150.644;
+
         return $this->render('CoolerMainBundle:Profile:profile.html.twig', array(
                 'beer' => $beer,
                 'style' => $style,
                 'category' => $category,
+                'location' => $location,
             )
         );    
     }
@@ -24,6 +30,36 @@ class BeerController extends Controller
     	$beerRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:beers');
     	$beer = $beerRepository->find($beerId);
     	return $beer;
+    }
+    public function getLocation($beer)
+    {
+        $brewery = $this->getBrewery($beer);
+
+        if ($brewery != null) {
+            $geocodeRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:breweriesgeocodes');
+            $geocode = $geocodeRepository->findOneByBreweryId($brewery->getId());
+
+            if ($geocode != null) {
+                $latitude = $geocode->getLatitude();
+                $longitude = $geocode->getLongitude();
+
+                return array('latitude' => $latitude, 'longitude' => $longitude);
+                
+            } else {
+                return array('latitude' => 0, 'longitude' => 0);
+            }
+        } else {
+            return array('latitude' => 0, 'longitude' => 0);
+        }
+
+
+
+    }
+    public function getBrewery($beer)
+    {
+        $breweriesRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:breweries');
+        $brewery = $breweriesRepository->find($beer->getId());
+        return $brewery;
     }
     public function getBeerCategory($beer)
     {

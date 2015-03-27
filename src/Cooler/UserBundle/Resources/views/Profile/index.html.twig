@@ -1,0 +1,62 @@
+{% extends 'CoolerMainBundle::layout.html.twig' %}
+
+{% block css %}
+	{{parent()}}
+	<link rel="stylesheet" type="text/css" href="{{asset('css/sidemenu.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/profile.css')}}">
+
+
+{% endblock css %}
+
+{% block content %}
+<div class="container opacityOff">
+	 
+	
+	<div class="header">
+		<a href="#" id="profileFridge"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
+		<a href="#" id="profileClose"><img src="{{asset('img/close.png')}}" alt="close"></a>
+	</div>
+
+	<div class="profilepic">
+
+	</div>
+
+	<h1>{{ user.username }}</h1>
+
+<div class="description">
+
+	<div class="tabs">
+        <ul class="tab-links">
+            <li class="active"><a href="#tab-1"></a></li>
+            <li><a href="#tab-2"></a></li>
+        </ul>
+     
+        <div class="tab-content">
+
+            <div id="tab-1" class="tab active">
+
+            </div>
+     
+            <div id="tab-2" class="tab">
+
+            </div>
+
+        </div>
+    </div>
+
+
+	
+</div>
+{% endblock content %}
+
+  {% block javascript %}
+	{{parent()}}
+    <script src="{{asset('js/sidemenu.js')}}"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function() {
+          $( ".tabs" ).tabs();
+        });
+    </script>
+    
+  {% endblock %}

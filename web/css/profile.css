@@ -125,3 +125,8 @@ h1 {
     height: 90%;
     width: auto;
 }
+
+#map-canvas {
+    width: 100%;
+    height: 500px;
+}

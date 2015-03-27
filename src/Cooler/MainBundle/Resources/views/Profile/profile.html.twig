@@ -4,6 +4,30 @@
 	{{parent()}}
 	<link rel="stylesheet" type="text/css" href="{{asset('css/sidemenu.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/profile.css')}}">
+    {% if location.latitude != 0 %}
+        <script type="text/javascript"
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq12Tjp91Ck4w1RYkYEbI23rsxmarrOyM">
+        </script>
+        <script type="text/javascript">
+              function initialize() {
+                var mapOptions = {
+                  center: { lat: {{location.latitude}}, lng: {{location.longitude}}},
+                  zoom: 8
+                };
+                var map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+                var myLatlng = new google.maps.LatLng({{location.latitude}}, {{location.longitude}});
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map
+                });
+              }
+              google.maps.event.addDomListener(window, 'load', initialize);
+
+        </script>
+    {% endif %}
+
+
 {% endblock css %}
 
 {% block content %}
@@ -28,25 +52,30 @@
 <div class="description">
 
 	<div class="tabs">
-    <ul class="tab-links">
-        <li class="active"><a href="">Description</a></li>
-        <li><a href="">Map</a></li>
-    </ul>
- 
-    <div class="tab-content">
-        <div id="tab1" class="tab active">
-            <p>{{ category }}</p>
-            <p>{{ style }}</p>
-            <p>{{ beer.descript }}</p>
-        </div>
- 
-        <div id="tab2" class="tab">
-            <p>Tab #2 content goes here!</p>
-            <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
-        </div>
+        <ul class="tab-links">
+            <li class="active"><a href="#tab-1">Description</a></li>
+            <li><a href="#tab-2">Map</a></li>
+        </ul>
+     
+        <div class="tab-content">
 
+            <div id="tab-1" class="tab active">
+                <p>{{ category }}</p>
+                <p>{{ style }}</p>
+                <p>{{ beer.descript }}</p>
+
+            </div>
+     
+            <div id="tab-2" class="tab">
+                {% if location.latitude != 0 %}
+                    <div id="map-canvas"></div>
+                {% else %}
+                    <p>No location information</p>
+                {% endif %}
+            </div>
+
+        </div>
     </div>
-</div>
 
 
 	
@@ -56,7 +85,11 @@
   {% block javascript %}
 	{{parent()}}
     <script src="{{asset('js/sidemenu.js')}}"></script>
-    <script src="{{asset('js/addabeer.js')}}"></script>
-    <script src="{{asset('js/autocomplete.js')}}"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function() {
+          $( ".tabs" ).tabs();
+        });
+    </script>
     
   {% endblock %}
