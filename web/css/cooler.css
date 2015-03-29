@@ -1,0 +1,13 @@
+#cooler ul {
+	padding: 0;
+	margin: 0;
+}
+#cooler li {
+	display: inline-block;
+	width: 24.5%;
+	text-align: center;
+}
+#cooler li a {
+	text-decoration: none;
+	color: #222;
+}

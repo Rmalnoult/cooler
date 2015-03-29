@@ -35,7 +35,7 @@
 	 
 	
 	<div class="header">
-		<a href="#" id="profileFridge"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
+		<a href="#" id="profileFridge" data-ajaxroute="{{ path('add_to_cooler', {}) }}" data-beerid="{{ beer.id }}" ><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
 		<a href="#" id="profileClose"><img src="{{asset('img/close.png')}}" alt="close"></a>
 	</div>
 
@@ -84,8 +84,9 @@
 
   {% block javascript %}
 	{{parent()}}
-    <script src="{{asset('js/sidemenu.js')}}"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="{{asset('js/sidemenu.js')}}"></script>
+    <script src="{{asset('js/cooler.js')}}"></script>
     <script>
         $(function() {
           $( ".tabs" ).tabs();

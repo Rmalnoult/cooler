@@ -27,9 +27,22 @@
 	<a href="{{ path('findabar', {}) }}" class=" findabar circleButton">Find a Bar</a>
 	<a href="#" class="shareabeer circleButton">Beer Now</a>
 	
-	<span class="variables" data-beerprofileroute="{{ path('beer', { 'beerId' : 'xxxxx'}) }}" ></span>
 </div>
 	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}
+
+	
+	<li class="beer template" >
+		<a href="" >
+			<div class="fridge">
+				<img src="../img/fridge.png" alt="" />
+			</div>
+			<img src="" alt="" />
+			<h2></h2>
+			<p class="teint" ></p>
+			<p class="alcohol" ></p>
+		</a>
+	</li>
+	<span class="variables" data-addtocoolerajaxroute="{{ path('add_to_cooler', {}) }}" data-beerprofileroute="{{ path('beer', { 'beerId' : 'xxxxx'}) }}" ></span>
 {% endblock content %}
 
   {% block javascript %}

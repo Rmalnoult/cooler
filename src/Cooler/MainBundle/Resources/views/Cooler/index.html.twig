@@ -1,0 +1,45 @@
+{% extends 'CoolerMainBundle::layout.html.twig' %}
+
+{% block css %}
+	{{parent()}}
+	<link rel="stylesheet" type="text/css" href="{{asset('css/sidemenu.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('css/cooler.css')}}">
+
+
+{% endblock css %}
+
+{% block content %}
+<div id="cooler">
+    {{ user.username }}
+    <ul>
+        {% for beer in beers %}
+            <li>
+                <a href="{{ path('beer', {'beerId' : beer.id}) }}">
+                    {% if beer.filepath is not null %}
+                        <img src="{{ url('home') }}img/beers/{{ beer.filepath }}" alt="{{beer.name}}">
+                    {% else %}
+                        <img src="{{ url('home') }}img/beers/duvel.png" alt="{{beer.name}}">
+                    {% endif %}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+
+
+{% endblock content %}
+
+  {% block javascript %}
+	{{parent()}}
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="{{asset('js/sidemenu.js')}}"></script>
+    <script src="{{asset('js/cooler.js')}}"></script>
+    <script>
+        $(function() {
+          $( ".tabs" ).tabs();
+        });
+    </script>
+    
+  {% endblock %}

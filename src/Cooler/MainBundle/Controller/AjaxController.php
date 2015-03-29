@@ -52,5 +52,47 @@ class AjaxController extends Controller
         
         return $category;
     }
+    public function addBeerToCoolerAction(Request $request)
+    {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+
+        if ($user != 'anon.') {
+            $beerId = $request->get('beerId');
+            $user = $this->getUserById($user->getId());
+            $beer = $this->getBeerById($beerId);
+
+            $user->addBeer($beer);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);                
+            $em->flush(); 
+
+            $array = array(
+                'success' => 'success',
+                'userid' => $user->getId(),
+                );
+
+            $response = new JsonResponse();
+            // $response->setData(array($response));
+            $response->setData(
+                $array
+            );
+            return $response;
+        } else {
+           return 'not logged in';
+        }        
+    }
+    public function getUserById($userId)
+    {
+        $userRepository = $this->getDoctrine()->getRepository('CoolerUserBundle:User');
+        $user = $userRepository->find($userId);
+        return $user;
+    }
+   public function getBeerById($beerId)
+    {
+        $beerRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:beers');
+        $beer = $beerRepository->find($beerId);
+        return $beer;
+    }
 
 }
