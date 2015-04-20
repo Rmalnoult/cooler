@@ -4,10 +4,25 @@
 }
 #cooler li {
 	display: inline-block;
-	width: 24.5%;
+	width: 24%;
+	max-width: 400px;
 	text-align: center;
+	position: relative;
 }
 #cooler li a {
 	text-decoration: none;
 	color: #222;
+	display: block;
+	height: 100%;
+}
+#cooler li a img {
+	text-align: center;
+	height: 130px;
+
+}
+#cooler li a p {
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 15px;
 }

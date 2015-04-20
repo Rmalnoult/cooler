@@ -40,6 +40,7 @@ var addabeer = {
 						borderWidth: 0,
 						borderRadius: 0},
 						300);
+					input.val('');
 			});
 			addabeer.onBackButtonClick();
 		});

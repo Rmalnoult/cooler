@@ -10,7 +10,7 @@
 <!-- 	<h1>home</h1>
 	<h2>hello {{user.username}}</h2> -->
 	<div class="header">
-		<a href="#" id="fridgeIcon"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
+		<a href="{{ path('cooler', {'userId' : user.id}) }}" id="fridgeIcon"><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
 		<a href="#" id="menuButton"><img src="{{asset('img/burgermenubutton.png')}}" alt="menu icon"></a>
 		
 		<img src="{{asset('img/logoettitre.png')}}" alt="">
@@ -33,7 +33,7 @@
 	
 	<li class="beer template" >
 		<a href="" >
-			<div class="fridge">
+			<div class="fridge" id="">
 				<img src="../img/fridge.png" alt="" />
 			</div>
 			<img src="" alt="" />

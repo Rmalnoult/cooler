@@ -10,7 +10,7 @@
 
 {% block content %}
 <div id="cooler">
-    {{ user.username }}
+    <!-- {{ user.username }} -->
     <ul>
         {% for beer in beers %}
             <li>
@@ -20,6 +20,7 @@
                     {% else %}
                         <img src="{{ url('home') }}img/beers/duvel.png" alt="{{beer.name}}">
                     {% endif %}
+                    <p>{{ beer.name }}</p>
                 </a>
             </li>
         {% endfor %}
@@ -36,10 +37,5 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{asset('js/sidemenu.js')}}"></script>
     <script src="{{asset('js/cooler.js')}}"></script>
-    <script>
-        $(function() {
-          $( ".tabs" ).tabs();
-        });
-    </script>
     
   {% endblock %}
