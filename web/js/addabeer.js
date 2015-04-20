@@ -4,6 +4,9 @@ var addabeer = {
 		addabeer.onAddABeerButtonClick();
 
 	},
+	/**
+	 * when the addabeer button is clicked on homepage : animate the button to transform into an input field
+	 */
 	onAddABeerButtonClick: function () {
 
 		var button = $('.circleButton.addabeer');

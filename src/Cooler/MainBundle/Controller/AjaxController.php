@@ -9,6 +9,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class AjaxController extends Controller
 {
+    /**
+     * Looks for a term in the beer database and send back json response with an array of beers
+     */
     public function searchBeerAction(Request $request)
     {
     	$searchterm = $request->get('term');
@@ -33,12 +36,14 @@ class AjaxController extends Controller
     		array_push($searchResults, $array); 
     	}
     	$response = new JsonResponse();
-    	// $response->setData(array($response));
     	$response->setData(
     	    $searchResults
     	);
     	return $response;
     }
+    /**
+     * takes a beer as input and return beer's category
+     */
     public function getBeerCategory($beer)
     {
         $catid = $beer->getCatId();
@@ -52,6 +57,9 @@ class AjaxController extends Controller
         
         return $category;
     }
+    /**
+     * Add beer to user's cooler
+     */
     public function addBeerToCoolerAction(Request $request)
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();

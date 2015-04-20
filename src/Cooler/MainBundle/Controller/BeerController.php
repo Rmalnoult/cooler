@@ -6,6 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BeerController extends Controller
 {
+    /**
+     * takes a beer's id as input and return beer's profile
+     */
     public function indexAction($beerId)
     {
     	$beer = $this->getBeerById($beerId);
@@ -31,6 +34,10 @@ class BeerController extends Controller
     	$beer = $beerRepository->find($beerId);
     	return $beer;
     }
+    /**
+     * takes a beer as input and return location information
+     * if no location information is available from the database : return 0 for longitude and latitude
+     */
     public function getLocation($beer)
     {
         $brewery = $this->getBrewery($beer);
