@@ -23,12 +23,13 @@ var addabeer = {
 			event.preventDefault();
 
 
-			button.animate({
+			circleButtons.animate({
 				width: 0,
 				height: 30,
 				fontSize: 0,
 				padding: 0},
 				300, function() {
+
 					headerIcons.animate({opacity: 0}, 300);
 					backButtonImg.animate({opacity: 1}, 300);
 					input.addClass('active');
@@ -80,13 +81,14 @@ var addabeer = {
 				borderRadius: 13},
 				150, function () {
 					
-					button.animate({
+					circleButtons.animate({
 						'width': '79%',
 						height: '22px',
 						fontSize: '1.2em',
 						padding: 9},
 						200, function() {
 							input.removeClass('active');
+
 					});
 
 				});
