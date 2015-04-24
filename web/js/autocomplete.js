@@ -53,8 +53,7 @@ var autocomplete = {
 									contentType: "application/x-www-form-urlencoded;charset=UTF-8",
 									data: {beerId : beerId},
 									success: function  (data) {
-										console.log('success');
-										// fridge.children('img').attr('src', '');
+										fridge.children('img').attr('src', '../img/frigovert.png');
 									}
 								})
 							});

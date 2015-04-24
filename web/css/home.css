@@ -251,7 +251,12 @@ ul#autocomplete li div.fridge {
 	cursor: pointer;
 }
 ul#autocomplete li div.fridge img {
-	width: 30px;
+	height: 45px;
+    margin: 0;
+    position: relative;
+    right: 9px;
+    top: 7px;
+    width: 24px;
 }
 
 
