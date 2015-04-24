@@ -14,7 +14,9 @@ class AjaxController extends Controller
      */
     public function searchBeerAction(Request $request)
     {
-    	$searchterm = $request->get('term');
+        $searchterm = $request->get('term');
+    	$userId = $request->get('userId');
+        $user = $this->getUserById($userId);
 
     	$query = $this->getDoctrine()->getEntityManager()->createQuery("SELECT o FROM CoolerMainBundle:beers o WHERE o.name like :searchterm")
     	->setParameter('searchterm', '%'.$searchterm.'%')
@@ -25,13 +27,15 @@ class AjaxController extends Controller
     	foreach ($beers as $beer) {
 
             $category = $this->getBeerCategory($beer);
+            $beerIsInCooler = $this->beerIsInCooler($user, $beer);
 
     		$array = array(
                 'name' => $beer->getName(),
     			'filepath' => $beer->getFilepath(),
     			'id' => $beer->getId(),
                 'abv' => $beer->getAbv(),
-    			'category' => $category,
+                'category' => $category,
+    			'beerIsInCooler' => $beerIsInCooler,
     			);
     		array_push($searchResults, $array); 
     	}
@@ -101,6 +105,18 @@ class AjaxController extends Controller
         $beerRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:beers');
         $beer = $beerRepository->find($beerId);
         return $beer;
+    }
+    public function beerIsInCooler($user, $beer)
+    {
+        $userBeers = $user->getBeers();
+        $beerId = $beer->getId();
+        foreach ($userBeers as $userBeer) {
+            $userBeerId = $userBeer->getId();
+            if ($userBeerId == $beerId) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

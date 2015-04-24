@@ -8,11 +8,12 @@ var autocomplete = {
 			var term = input.val();
 			if (term.length >= 2) {
 				var autocompleteRoute = input.attr('data-autocompleteroute');
+				var userId = $('span.variables').attr('data-userid')
 				$.ajax({
 					url: autocompleteRoute,
 					type: 'POST',
 					contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-					data: {term : term},
+					data: {term : term, userId: userId},
 					success: function  (data) {
 						$('ul#autocomplete').empty();
 						for (var i = 0; i < data.length; i++) {
@@ -21,6 +22,7 @@ var autocomplete = {
 							var route = $('span.variables').attr('data-addtocoolerajaxroute');
 							var beerUrl = url.replace("xxxxx", data[i].id);
 							var beerId = data[i].id;
+							var beerIsInCooler = data[i].beerIsInCooler;
 
 							if (data[i].filepath != '') {
 								var photoUrl = data[i].filepath;
@@ -39,6 +41,13 @@ var autocomplete = {
 							beer.children('a').children('p.alcohol').text(data[i].abv);
 							beer.children('a').children('div.fridge').attr('id', beerId);
 
+							if (beerIsInCooler == true) {
+								beer.children('a').children('div.fridge').children('img').attr('src', '../img/frigovert.png');
+							} else {
+								beer.children('a').children('div.fridge').children('img').attr('src', '../img/frigogris.png');
+
+							};
+
 							beer.show('fast');
 							beer.removeClass('template');
 
@@ -47,6 +56,7 @@ var autocomplete = {
 							fridge.on('click', function(event) {
 								event.preventDefault();
 								var beerId = $(this).attr('id');
+								var fridge = $('.beer').children('a').children('div.fridge#'+beerId);
 								$.ajax({
 									url: route,
 									type: 'POST',

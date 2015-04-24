@@ -3,18 +3,21 @@
 namespace Cooler\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class BeerController extends Controller
 {
     /**
      * takes a beer's id as input and return beer's profile
      */
-    public function indexAction($beerId)
+    public function indexAction(Request $request, $beerId)
     {
+        $userId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+        $user = $this->getUserById($userId);
     	$beer = $this->getBeerById($beerId);
     	$style = $this->getBeerStyle($beer);
     	$category = $this->getBeerCategory($beer);
-
+        $beerIsInCooler = $this->beerIsInCooler($user, $beer);
         $location = $this->getLocation($beer);
 
 
@@ -25,8 +28,15 @@ class BeerController extends Controller
                 'style' => $style,
                 'category' => $category,
                 'location' => $location,
+                'beerIsInCooler' => $beerIsInCooler,
             )
         );    
+    }
+    public function getUserById($userId)
+    {
+        $userRepository = $this->getDoctrine()->getRepository('CoolerUserBundle:User');
+        $user = $userRepository->find($userId);
+        return $user;
     }
     public function getBeerById($beerId)
     {
@@ -92,6 +102,19 @@ class BeerController extends Controller
     	} else {
     		return '';
     	}
+    }
+    public function beerIsInCooler($user, $beer)
+    {
+        $userBeers = $user->getBeers();
+        $beerId = $beer->getId();
+        foreach ($userBeers as $userBeer) {
+            $userBeerId = $userBeer->getId();
+
+            if ($userBeerId == $beerId) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

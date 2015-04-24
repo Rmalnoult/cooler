@@ -42,7 +42,7 @@
 			<p class="alcohol" ></p>
 		</a>
 	</li>
-	<span class="variables" data-addtocoolerajaxroute="{{ path('add_to_cooler', {}) }}" data-beerprofileroute="{{ path('beer', { 'beerId' : 'xxxxx'}) }}" ></span>
+	<span class="variables" data-addtocoolerajaxroute="{{ path('add_to_cooler', {}) }}" data-beerprofileroute="{{ path('beer', { 'beerId' : 'xxxxx'}) }}" data-userid = "{{ user.id }}"></span>
 {% endblock content %}
 
   {% block javascript %}

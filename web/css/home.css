@@ -249,6 +249,7 @@ ul#autocomplete li div.fridge {
 	right: 0;
 	top: 0;
 	cursor: pointer;
+	z-index: 4;
 }
 ul#autocomplete li div.fridge img {
 	height: 45px;
@@ -257,6 +258,10 @@ ul#autocomplete li div.fridge img {
     right: 9px;
     top: 7px;
     width: 24px;
+    opacity: 0.9;
+}
+ul#autocomplete li.template div.fridge img {
+	opacity: 0;
 }
 
 

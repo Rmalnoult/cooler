@@ -35,8 +35,14 @@
 	 
 	
 	<div class="header">
-		<a href="#" id="profileFridge" data-ajaxroute="{{ path('add_to_cooler', {}) }}" data-beerid="{{ beer.id }}" ><img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
-		<a href="#" id="profileClose"><img src="{{asset('img/close.png')}}" alt="close"></a>
+		<a href="#" id="profileFridge" data-ajaxroute="{{ path('add_to_cooler', {}) }}" data-beerid="{{ beer.id }}" >
+            {% if beerIsInCooler == true %}
+                <img src="{{asset('img/frigovert.png')}}" alt="fridge icon"></a>
+            {% else %}
+                <img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
+            {% endif %}
+            
+		<a href="{{ path('home') }}" id="profileClose"><img src="{{asset('img/close.png')}}" alt="close"></a>
 	</div>
 
 	<div class="profilepic">
@@ -80,6 +86,7 @@
 
 	
 </div>
+<div class="variables" data-beerid = "{{ beer.id }}"></div>
 {% endblock content %}
 
   {% block javascript %}
@@ -87,6 +94,7 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{asset('js/sidemenu.js')}}"></script>
     <script src="{{asset('js/cooler.js')}}"></script>
+    <script src="{{asset('js/beerProfile.js')}}"></script>
     <script>
         $(function() {
           $( ".tabs" ).tabs();
