@@ -19,7 +19,8 @@ var autocomplete = {
 						for (var i = 0; i < data.length; i++) {
 							// console.log(data[i].name);
 							var url = $('span.variables').attr('data-beerprofileroute');
-							var route = $('span.variables').attr('data-addtocoolerajaxroute');
+							var addRoute = $('span.variables').attr('data-addtocoolerajaxroute');
+							var deleteRoute = $('span.variables').attr('data-removefromcoolerajaxroute');
 							var beerUrl = url.replace("xxxxx", data[i].id);
 							var beerId = data[i].id;
 							var beerIsInCooler = data[i].beerIsInCooler;
@@ -57,15 +58,27 @@ var autocomplete = {
 								event.preventDefault();
 								var beerId = $(this).attr('id');
 								var fridge = $('.beer').children('a').children('div.fridge#'+beerId);
-								$.ajax({
-									url: route,
-									type: 'POST',
-									contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-									data: {beerId : beerId},
-									success: function  (data) {
-										fridge.children('img').attr('src', '../img/frigovert.png');
-									}
-								})
+								if (fridge.children('img').attr('src') == '../img/frigogris.png') {
+									$.ajax({
+										url: addRoute,
+										type: 'POST',
+										contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+										data: {beerId : beerId},
+										success: function  (data) {
+											fridge.children('img').attr('src', '../img/frigovert.png');
+										}
+									})
+								} else {
+									$.ajax({
+										url: deleteRoute,
+										type: 'POST',
+										contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+										data: {beerId : beerId},
+										success: function  (data) {
+											fridge.children('img').attr('src', '../img/frigogris.png');
+										}
+									})
+								};
 							});
 						};
 					}

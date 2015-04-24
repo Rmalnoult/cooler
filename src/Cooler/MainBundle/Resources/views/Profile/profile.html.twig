@@ -35,7 +35,7 @@
 	 
 	
 	<div class="header">
-		<a href="#" id="profileFridge" data-ajaxroute="{{ path('add_to_cooler', {}) }}" data-beerid="{{ beer.id }}" >
+		<a href="#" id="profileFridge" data-addtocoolerajaxroute="{{ path('add_to_cooler', {}) }}" data-removefromcoolerajaxroute="{{ path('remove_from_cooler', {}) }}" data-beerid="{{ beer.id }}" >
             {% if beerIsInCooler == true %}
                 <img src="{{asset('img/frigovert.png')}}" alt="fridge icon"></a>
             {% else %}
@@ -93,7 +93,7 @@
 	{{parent()}}
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{asset('js/sidemenu.js')}}"></script>
-    <script src="{{asset('js/cooler.js')}}"></script>
+
     <script src="{{asset('js/beerProfile.js')}}"></script>
     <script>
         $(function() {

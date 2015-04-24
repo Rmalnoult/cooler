@@ -93,6 +93,38 @@ class AjaxController extends Controller
         } else {
            return 'not logged in';
         }        
+    }    /**
+     * Add beer to user's cooler
+     */
+    public function removeBeerFromCoolerAction(Request $request)
+    {
+        $user = $this->get('security.token_storage')->getToken()->getUser();
+
+        if ($user != 'anon.') {
+            $beerId = $request->get('beerId');
+            $user = $this->getUserById($user->getId());
+            $beer = $this->getBeerById($beerId);
+
+            $user->removeBeer($beer);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);                
+            $em->flush(); 
+
+            $array = array(
+                'success' => 'success',
+                'userid' => $user->getId(),
+                );
+
+            $response = new JsonResponse();
+            // $response->setData(array($response));
+            $response->setData(
+                $array
+            );
+            return $response;
+        } else {
+           return 'not logged in';
+        }        
     }
     public function getUserById($userId)
     {

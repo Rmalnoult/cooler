@@ -9,13 +9,19 @@
 {% endblock css %}
 
 {% block content %}
+
 <div id="cooler">
+    <div class="header">
+        <a href="{{ path('home') }}" id="backIcon"><img src="{{asset('img/backButton.png')}}" alt="back"></a>
+        <h1>Your Cooler</h1>
+    </div>
     <!-- {{ user.username }} -->
+    <div class="coolerTop"><img src="{{asset('img/coolerTopLayer.jpg')}}" alt=""></div>
     <ul>
         {% for beer in beers %}
             <li>
                 <a href="{{ path('beer', {'beerId' : beer.id}) }}">
-                    {% if beer.filepath is not null %}
+                    {% if beer.filepath != "" %}
                         <img src="{{ url('home') }}img/beers/{{ beer.filepath }}" alt="{{beer.name}}">
                     {% else %}
                         <img src="{{ url('home') }}img/beers/duvel.png" alt="{{beer.name}}">

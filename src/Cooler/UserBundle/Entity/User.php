@@ -24,6 +24,7 @@ class User extends BaseUser
     /**
      * @ORM\ManyToMany(targetEntity="Cooler\MainBundle\Entity\beers", inversedBy="users")
      * @ORM\JoinTable(name="users_beers")
+     * @ORM\OrderBy({"name" = "ASC"})
      **/
     protected $beers;
 

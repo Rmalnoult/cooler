@@ -22,6 +22,10 @@ add_to_cooler:
     path: /addtocooler/
     defaults: { _controller: CoolerMainBundle:Ajax:addBeerToCooler }
 
+remove_from_cooler:
+    path: /removefromcooler/
+    defaults: { _controller: CoolerMainBundle:Ajax:removeBeerFromCooler }
+
 cooler:
     path:     /cooler/{userId}/
     defaults: { _controller: CoolerMainBundle:Cooler:index }
