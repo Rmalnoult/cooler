@@ -50,7 +50,7 @@ a#fridgeIcon {
 a.backButton {
 	position: absolute;
     right: 17px;
-    top: 3px;
+    top: 12px;
 
 }
 a.backButton img {
@@ -166,7 +166,6 @@ input#addabeer {
 	height: 0;
 	position: relative;
 	width: 0;
-	max-width: 350px;
 	opacity: 0;
 }
 input#addabeer.active {

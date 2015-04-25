@@ -1,6 +1,7 @@
 var beerProfile = {
 	initialize: function () {
 		var fridge = $('a#profileFridge');
+		var backButton = $('a#profileClose');
 		var beerId = fridge.attr('data-beerid');
 		var addRoute = fridge.attr('data-addtocoolerajaxroute');
 		var deleteRoute = fridge.attr('data-removefromcoolerajaxroute');
@@ -31,6 +32,12 @@ var beerProfile = {
 					}
 				})
 			};
+		});
+		backButton.on('click', function(event) {
+			event.preventDefault();
+			console.log('yeah');
+			window.history.go(-1);
+
 		});
 	}
 }

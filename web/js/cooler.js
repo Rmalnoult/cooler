@@ -3,6 +3,8 @@ var cooler = {
 		console.log('hello cooler.js');
 
 		var fridge = $('a#profileFridge');
+		var backButton = $('a#backIcon');
+
 		fridge.on('click', function(event) {
 			event.preventDefault();
 
@@ -21,6 +23,15 @@ var cooler = {
 				}
 			})
 		});
+
+		backButton.on('click', function(event) {
+			event.preventDefault();
+			console.log('yeah');
+			window.history.go(-1);
+
+		});
+
+
 	}
 }
 

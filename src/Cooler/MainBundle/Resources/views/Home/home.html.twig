@@ -18,7 +18,7 @@
 
 
 	<form action="POST">
-		<input type="text" data-autocompleteroute="{{ path('search_beer', {}) }}" id="addabeer"/>
+		<input type="text" data-autocompleteroute="{{ path('search_beer', {}) }}" id="addabeer" placeholder="Search for a beer name..." />
 		<a href="#" style="display:none" class="backButton"><img src="{{asset('img/close.png')}}" alt="menu icon"></a>
 		<ul id="autocomplete"></ul>
 	</form>
