@@ -5,7 +5,13 @@
 {% endblock css %}
 
 {% block content %}
-<div class="container opacityOff start">
-	{{ dump(beer) }}
-</div>
+<div id="fb-root"></div>
+<script src="{{asset('js/facebookconnect.js')}}"></script>
+
+ <p>
+     <a href="#" id="fbconnect" onclick="fb_login();"><img src="{{asset('img/fbconnect.png')}}" alt="Sign In With Facebook"></a>
+ </p>
+ <p>Or Sign in with your email adress</p>
+
+
 {% endblock content %}

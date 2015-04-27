@@ -44,17 +44,6 @@ class HomeController extends Controller
 	public function testAction()
 	{
 
-		$beerRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:beers');
-		$beer = $beerRepository->findByName('heineken');
-
-		var_dump($beer->getId());
-		$catid = $beer->getCatId();
-		var_dump($catid);
-		$categoriesRepository = $this->getDoctrine()->getRepository('CoolerMainBundle:categories');
-		$categories = $categoriesRepository->find($catid);
-		$categories = $categories->getCatName();
-
-
-		return $this->render('CoolerMainBundle:Home:test.html.twig', array('beer' => $categories));
+		return $this->render('CoolerMainBundle:Home:test.html.twig', array('' => ''));
 	}
 }

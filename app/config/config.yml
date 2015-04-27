@@ -78,3 +78,32 @@ fos_user:
     firewall_name: main
     user_class: Cooler\UserBundle\Entity\User
 
+hwi_oauth:
+    #this is my custom user provider, created from FOSUBUserProvider - will manage the 
+    #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+    #and also, the connecting part (get the token and the user_id)
+    connect:
+        account_connector: my_user_provider
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    fosub:
+        username_iterations: 30
+        properties:
+            # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            facebook: facebook_id
+            google: google_id
+    resource_owners:
+        facebook:
+            type:                facebook
+            client_id:           791734124244253
+            client_secret:       1af8f32ddf200f69ebc5c9072f917a89
+            scope:               "email"
+            options:
+                display: popup
+        google:
+            type:                google
+            client_id:           "1"
+            client_secret:       "1"
+            scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+    # here you will add one (or more) configurations for resource owners
+

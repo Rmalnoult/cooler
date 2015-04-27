@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Cooler\UserBundle\CoolerUserBundle(),
             new Cooler\MainBundle\CoolerMainBundle(),
             new Cooler\PhotoBundle\CoolerPhotoBundle(),
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
