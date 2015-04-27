@@ -1,3 +1,7 @@
+cooler_beernow:
+    resource: "@CoolerBeernowBundle/Resources/config/routing.yml"
+    prefix:   /
+
 cooler_photo:
     resource: "@CoolerPhotoBundle/Resources/config/routing.yml"
     prefix:   /

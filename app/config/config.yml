@@ -97,9 +97,13 @@ hwi_oauth:
             type:                facebook
             client_id:           791734124244253
             client_secret:       1af8f32ddf200f69ebc5c9072f917a89
-            scope:               "email"
+            scope:               "email, user_friends"
             options:
                 display: popup
+            infos_url:     "https://graph.facebook.com/me?fields=id,name,email,picture.type(square)"
+            paths:
+                email:          email
+                profilepicture: picture.data.url
         google:
             type:                google
             client_id:           "1"

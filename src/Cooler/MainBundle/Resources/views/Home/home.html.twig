@@ -25,7 +25,7 @@
 
 	<a href="#" class="circleButton addabeer">Add a Beer</a>
 	<a href="{{ path('findabar', {}) }}" class=" findabar circleButton">Find a Bar</a>
-	<a href="#" class="shareabeer circleButton">Beer Now</a>
+	<a href="{{ path('cooler_beernow', {}) }}" class="shareabeer circleButton">Beer Now</a>
 	
 </div>
 	{{ include("CoolerMainBundle:Menus:sidemenu.html.twig", {"user": user})}}

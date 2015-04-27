@@ -4,6 +4,7 @@ namespace Cooler\UserBundle\Security\Core\User;
 use HWI\Bundle\OAuthBundle\OAuth\Response\UserResponseInterface;
 use HWI\Bundle\OAuthBundle\Security\Core\User\FOSUBUserProvider as BaseClass;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Facebook\FacebookSession;
 
 class FOSUBUserProvider extends BaseClass
 {
@@ -15,6 +16,8 @@ class FOSUBUserProvider extends BaseClass
     {
         $property = $this->getProperty($response);
         $username = $response->getUsername();
+
+
 
         //on connect - get the access token and the user ID
         $service = $response->getResourceOwner()->getName();
@@ -42,6 +45,22 @@ class FOSUBUserProvider extends BaseClass
      */
     public function loadUserByOAuthUserResponse(UserResponseInterface $response)
     {
+
+        // var_dump($response->getEmail());
+        // var_dump($response->getProfilepicture());
+
+
+
+
+        // FacebookSession::setDefaultApplication('791734124244253', '1af8f32ddf200f69ebc5c9072f917a89');
+
+
+        // $session = new FacebookSession($response->getAccessToken());
+
+
+        // var_dump('hi');
+        // var_dump($response->getResponse());
+        // die;
         $username = $response->getUsername();
         $user = $this->userManager->findUserBy(array($this->getProperty($response) => $username));
         //when the user is registrating
