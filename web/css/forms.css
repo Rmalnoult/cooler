@@ -91,4 +91,9 @@ input#remember_me {
 }
 a#fbconnect {
     max-width: 90%;
+    position: relative;
+    /*display: block;*/
+}
+a#fbconnect img {
+    max-width: 90%
 }
