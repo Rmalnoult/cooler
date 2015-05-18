@@ -1,47 +1,40 @@
+<!-- Parent template : all blocks in this file will extend blocks in the parent template -->
 {% extends 'CoolerMainBundle::layout.html.twig' %}
 
 {% block css %}
+    <!-- the parent attributes adds the content of this block in the parent twig file -->
 	{{parent()}}
 	<link rel="stylesheet" type="text/css" href="{{asset('css/sidemenu.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('css/cooler.css')}}">
-
-
 {% endblock css %}
 
 {% block content %}
-
-<div id="cooler">
-    <div class="header">
-        <a href="{{ path('home') }}" id="backIcon"><img src="{{asset('img/backButton.png')}}" alt="back"></a>
-        <h1>Your Cooler</h1>
+    <div id="cooler">
+        <div class="header">
+            <a href="{{ path('home') }}" id="backIcon"><img src="{{asset('img/backButton.png')}}" alt="back"></a>
+            <h1>Your Cooler</h1>
+        </div>
+        <div class="coolerTop"><img src="{{asset('img/coolerTopLayer.jpg')}}" alt=""></div>
+        <ul>
+            {% for beer in beers %}
+                <li>
+                    <a href="{{ path('beer', {'beerId' : beer.id}) }}">
+                        {% if beer.filepath != "" %}
+                            <img src="{{ url('home') }}img/beers/{{ beer.filepath }}" alt="{{beer.name}}">
+                        {% else %}
+                            <img src="{{ url('home') }}img/beers/duvel.png" alt="{{beer.name}}">
+                        {% endif %}
+                        <p>{{ beer.name }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     </div>
-    <!-- {{ user.username }} -->
-    <div class="coolerTop"><img src="{{asset('img/coolerTopLayer.jpg')}}" alt=""></div>
-    <ul>
-        {% for beer in beers %}
-            <li>
-                <a href="{{ path('beer', {'beerId' : beer.id}) }}">
-                    {% if beer.filepath != "" %}
-                        <img src="{{ url('home') }}img/beers/{{ beer.filepath }}" alt="{{beer.name}}">
-                    {% else %}
-                        <img src="{{ url('home') }}img/beers/duvel.png" alt="{{beer.name}}">
-                    {% endif %}
-                    <p>{{ beer.name }}</p>
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-
-</div>
-
-
-
 {% endblock content %}
 
-  {% block javascript %}
-	{{parent()}}
+{% block javascript %}
+    {{parent()}}
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="{{asset('js/sidemenu.js')}}"></script>
     <script src="{{asset('js/cooler.js')}}"></script>
-    
-  {% endblock %}
+{% endblock %}

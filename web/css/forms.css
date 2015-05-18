@@ -89,4 +89,6 @@ input#remember_me {
     width: 55px;
     margin: 20px auto;
 }
-
+a#fbconnect {
+    max-width: 90%;
+}
