@@ -41,21 +41,23 @@
             {% else %}
                 <img src="{{asset('img/fridge.png')}}" alt="fridge icon"></a>
             {% endif %}
+            <div id='loading' style='display: none'><img src="{{asset('img/ajax-loader.gif')}}" title="Loading" /></div>
             
 		<a href="#" id="profileClose"><img src="{{asset('img/backButton.png')}}" alt="close"></a>
 	</div>
 
 	<div class="profilepic">
-        {% if beer.filepath is not null  %}
+        {% if beer.filepath != ''  %}
 		  <img src="{{ url('home') }}img/beers/{{ beer.filepath }}" alt="">
         {% else  %}
-            <p>no picture</p>
+            <img src="{{ url('home') }}img/beers/duvel.png" alt="">
+
         {% endif %}
 	</div>
 
 	<h1>{{ beer.name }}</h1>
 
-<div class="description">
+<div class="description" id="NTM_leuven">
 
 	<div class="tabs">
         <ul class="tab-links">
@@ -66,9 +68,12 @@
         <div class="tab-content">
 
             <div id="tab-1" class="tab active">
-                <p>{{ category }}</p>
-                <p>{{ style }}</p>
-                <p>{{ beer.descript }}</p>
+                <p>Category : <span>{{ category }}</span></p>
+                <p>Style : <span>{{ style }}</span></p>
+                {% if beer.descript != '' %}
+                    <p>Description : <span>{{ beer.descript }}</span></p>
+                {% endif %}
+                
 
             </div>
      

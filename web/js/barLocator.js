@@ -5,12 +5,18 @@ var infowindow;
 function initialize() {
 	
   var pos = getGeoLocation();
+  var loadingdiv = $('#loading');
+  loadingdiv.show('fast');
 }
 function appendBarCard (bar) {
-	$('ul#barList').append('<li>'+bar.name+'</li>');
+	console.log(bar);
+	$('ul#barList').append('<li><img src="../img/beerlogo.png" />'+bar.name+'<p class="adress">'+bar.vicinity+'</p></li>');
 }
 function callback(results, status) {
+
   if (status == google.maps.places.PlacesServiceStatus.OK) {
+  	var loadingdiv = $('#loading');
+  	loadingdiv.hide('fast');
     for (var i = 0; i < results.length; i++) {
       var place = results[i];
       console.log(results[i]);

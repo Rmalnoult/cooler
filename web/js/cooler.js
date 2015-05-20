@@ -12,6 +12,9 @@ var cooler = {
 			var route = fridge.attr('data-ajaxroute');
 			var userId = 99;
 
+			var loadingdiv = $('#loading');
+			loadingdiv.show('fast');
+
 			$.ajax({
 				url: route,
 				type: 'POST',
@@ -19,6 +22,8 @@ var cooler = {
 				data: {beerId : beerId},
 				success: function  (data) {
 					console.log('success');
+					var loadingdiv = $('#loading');
+					loadingdiv.hide('fast');
 					// fridge.children('img').attr('src', '');
 				}
 			})

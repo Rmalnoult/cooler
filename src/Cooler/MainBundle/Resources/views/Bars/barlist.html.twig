@@ -6,8 +6,12 @@
 {% endblock css %}
 
 {% block content %}
-	<ul id="barList"></ul>
-	<div style="display:none" id="map"></div>
+	<div class="container barlist">
+		<div id='loading' style='display: none'><img src="{{asset('img/loading-beer.gif')}}" title="Loading" /></div>
+		<ul id="barList"></ul>
+
+		<div style="display:none" id="map"></div>
+	</div>
 {% endblock content %}
 
 

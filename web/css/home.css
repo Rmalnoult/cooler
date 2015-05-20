@@ -151,6 +151,8 @@ ul#barList li {
 	list-style-type: none;
 	font-size: 2em;
 	margin-bottom: 15px;
+	background-color: #fff;
+	margin: 20px auto;
 }
 form {
  	left: 0;
@@ -262,5 +264,22 @@ ul#autocomplete li div.fridge img {
 ul#autocomplete li.template div.fridge img {
 	opacity: 0;
 }
+ul#barList li {
+	position: relative;
+}
+p.adress {
+	font-size: 0.5em;
+	text-align: right;
+}
+ul#barList li img {
+	float: left;
+	width: 25%;
+	height: auto;
+	max-width: 125px;
+	margin: -17px 12px;
+}
+div.container.barlist {
+	background-image: none;
 
-
+	background-color: #E9E9E9 !important;
+}

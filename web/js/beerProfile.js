@@ -8,6 +8,8 @@ var beerProfile = {
 
 		fridge.on('click', function(event) {
 			event.preventDefault();
+			var loadingdiv = $('#loading');
+			loadingdiv.show('fast');
 			if (fridge.children('img').attr('src') == '/../img/fridge.png') {
 				console.log(beerId);
 
@@ -17,7 +19,10 @@ var beerProfile = {
 					contentType: "application/x-www-form-urlencoded;charset=UTF-8",
 					data: {beerId : beerId},
 					success: function  (data) {
+						  var loadingdiv = $('#loading');
+						  loadingdiv.hide();
 						fridge.children('img').attr('src', '/../img/frigovert.png');
+
 					}
 				})
 			} else {
@@ -28,7 +33,10 @@ var beerProfile = {
 					contentType: "application/x-www-form-urlencoded;charset=UTF-8",
 					data: {beerId : beerId},
 					success: function  (data) {
+						  loadingdiv.show('fast');
+						  loadingdiv.hide();
 						fridge.children('img').attr('src', '/../img/fridge.png');
+
 					}
 				})
 			};

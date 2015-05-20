@@ -41,7 +41,7 @@ h1 {
 .tabs {
     width:100%;
     display:inline-block;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
 }
  
     /*----- Tab Links -----*/
@@ -106,6 +106,7 @@ h1 {
         padding:15px;
         border-radius:3px;
         background:#fff;
+        text-align: left;
     }
  
         .tab {
@@ -115,6 +116,12 @@ h1 {
         .tab.active {
             display:block;
         }
+    #tab-1 p  {
+        text-transform: uppercase;
+    }
+    #tab-1 p span {
+        text-transform: none;
+    }
 
 
 
